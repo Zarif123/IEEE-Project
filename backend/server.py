@@ -13,7 +13,7 @@ def get_time():
   
     # Returning an api for showing in  reactjs
     return {
-        'Name':"geek", 
+        'Name':"david Wang", 
         "Age":"22",
         "Date":x, 
         "programming":"python"
