@@ -1,3 +1,7 @@
 data/
 food-101/
 food-101.tar.gz/
+backend/env
+backend/__pycache__
+frontend/node_modules
+node_modules/
