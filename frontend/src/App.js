@@ -1,6 +1,8 @@
+import DragDropFile from './components/DragDropFile';
 import logo from './logo.svg';
 import React, { useState, useEffect } from "react";
 import Uploads from './components/uploads';
+
 import './App.css';
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
             <p>{data.date}</p>
             <p>{data.programming}</p>
             <Uploads/>
+            <DragDropFile/>
         </header>
     </div>
   );
