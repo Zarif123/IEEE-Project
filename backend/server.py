@@ -25,3 +25,8 @@ def hello():
 # Running app
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+@app.route('/imgResponse')
+def get_food_name(img):
+    return img
