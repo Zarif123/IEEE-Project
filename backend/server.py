@@ -49,7 +49,7 @@ def get_food_name():
     
     # for i in len(tensor_image):
     #     print(tensor_image[i])
-    return {'hello': img}
+    return {'ingredients': ['eggs', 'steak', 'bread'], 'food name': 'tartare'}
   
 @app.route('/')
 def hello():

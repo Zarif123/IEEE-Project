@@ -8,6 +8,8 @@ function DragDropFile() {
     const inputRef = React.useRef(null);
     const [foodText, setFoodText] = useState("Go ahead and upload your food image!");
     //handle uploaded image
+    const [ingredients, setIngredients] = React.useState([]);
+    const [foodName, setFoodName] = React.useState("");
     const handleUpload = function(image) {
       if (! (image && image['type'].split('/')[0] === 'image')){
         alert("Please upload an image first!");
@@ -22,11 +24,8 @@ function DragDropFile() {
             var newImage = document.createElement('img');
             newImage.src = srcData;
             document.getElementById("imgShow").innerHTML = newImage.outerHTML;
-            console.log("Converted Base64 version is " + document.getElementById("imgShow").innerHTML);
             var imageString = newImage.src.split(",")[1];
-            console.log(imageString);
             let imagePackage = {'img': imageString};
-            let dat = {'hello': 'you', 'img': 'ayyy'};
             fetch('/imgResponse', {
               method: 'Post',
               headers: {
@@ -36,6 +35,8 @@ function DragDropFile() {
             }).then((res) =>
               res.json().then((data) => {
                 console.log(data);
+                setIngredients(data["ingredients"]);
+                setFoodName(data["food name"]);
                 setFoodText("You can check a different picture!");
               })
             );
@@ -96,6 +97,25 @@ function DragDropFile() {
         }
         
         <div className="imgShow" id="imgShow"></div>
+        {
+          (ingredients.length !== 0) && 
+          <h4 className="foodName">
+            You're eating {foodName}!
+          </h4>
+        }
+        {
+          (ingredients.length !== 0) && 
+          <h4 className="foodName">
+            The ingredients are:
+          </h4>
+        }
+        {
+          ingredients.map((ingredient) => {
+              return <p className="ingredient">
+                {ingredient}
+              </p>
+          })
+        }
       </div>
     );
   };
