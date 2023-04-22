@@ -36,7 +36,7 @@ function DragDropFile() {
               res.json().then((data) => {
                 console.log(data);
                 setIngredients(data["ingredients"]);
-                setFoodName(data["food name"]);
+                setFoodName(data["foodName"]);
                 setFoodText("You can check a different picture!");
               })
             );
@@ -96,26 +96,33 @@ function DragDropFile() {
           </form>
         }
         
-        <div className="imgShow" id="imgShow"></div>
-        {
-          (ingredients.length !== 0) && 
-          <h4 className="foodName">
-            You're eating {foodName}!
-          </h4>
-        }
-        {
-          (ingredients.length !== 0) && 
-          <h4 className="foodName">
-            The ingredients are:
-          </h4>
-        }
-        {
-          ingredients.map((ingredient) => {
-              return <p className="ingredient">
-                {ingredient}
-              </p>
-          })
-        }
+        <div className="totalContainer">
+          <div className="imgShow" id="imgShow"></div>
+          <div className="foodBox">
+            {
+              (ingredients.length !== 0) && 
+              <h4 className="foodName">
+                You're eating {foodName}!
+              </h4>
+            }
+            {
+              (ingredients.length !== 0) && 
+              <h4 className="foodName">
+                The ingredients are:
+              </h4>
+            }
+            <div className="ingBox">
+              {
+                
+                ingredients.map((ingredient) => {
+                    return <p className="ingredient">
+                      {ingredient}
+                    </p>
+                })
+              }
+            </div>
+          </div>
+        </div>
       </div>
     );
   };
