@@ -4,6 +4,7 @@
     max-width: 100%;
     text-align: center;
     position: relative;
+    left: 25vw;
   }
   
   #input-file-upload {
@@ -11,11 +12,14 @@
   }
   
   #label-file-upload {
-    height: 100%;
+    height: 50%;
     display: flex;
+    width: 50%;
     align-items: center;
     justify-content: center;
-    border-width: 2px;
+    justify-items: center;
+    align-content: center;
+    border-width: 4px;
     border-radius: 1rem;
     border-style: dashed;
     border-color: #cbd5e1;
@@ -24,11 +28,13 @@
   
   #label-file-upload.drag-active {
     background-color: #ffffff;
+    border-color: #5c9ae7;
   }
   
   .upload-button {
     cursor: pointer;
     padding: 0.25rem;
+    width: 100%;
     font-size: 1rem;
     border: none;
     font-family: 'Oswald', sans-serif;
@@ -48,4 +54,12 @@
     right: 0px;
     bottom: 0px;
     left: 0px;
+  }
+
+  .imgShow {
+    width: auto;
+    height: auto;
+    border-width: 4px;
+    border-radius: 1rem;
+    margin-top: -80px;
   }
